@@ -1,34 +1,48 @@
 # Project 3 @cmda-minor-web · 2018-2019
 
-## Design for Real-Time
-Het project vindt plaats bij in ons eigen lokaal. Maandagochtend is om 9.30 uur de kickoff (bij de oprachtgever), vrijdag zijn de presentaties van de resultaten (bij de opdrachtgever). In een week bouwt iedere student een eigen prototype ter onderbouwing van aanbevelingen aan de opdrachtgevers (CERN & Lifely). De aanbevelingen betreffen het designen voor Real-Time web applicaties. Technieken geleerd bij [Web Design](https://github.com/cmda-minor-web/web-design-1819) en [Real-Time Web](https://github.com/cmda-minor-web/real-time-web-1819) worden toegepast bij het bouwen van de de prototypes en et schrijven van de aanbevelingen.
+For the third project in the Webdesign minor, I was tasked to make a WYSIWYG editor for MarkDown documents.
 
-## Programma
-Maandag - 9.30 - kickoff
-Woensdag - voortgangbespreking
-Vrijdag presentatie
+## Dag 1-2 (Ma-Di)
 
-## Werkwijze en Criteria
-### Werkwijze
-Full-time week werken aan prototypes / proof of concepts over designen voor real-time web applicaties. Vrijdag is de pitch! Student laat zien dat hij/zij de vakken [Web Design](https://github.com/cmda-minor-web/web-design-1819) en [Real-Time Web](https://github.com/cmda-minor-web/real-time-web-1819) begrijpt en beheerst.
+### Research
+As a webdesigner in the making, I decided to immediately dive into researching the current situation. What works? What doesn't? Who uses the current program? Who will use the new program? Etc. Some of these questions were already answered at the end of the kick-off presentation, but some were yet to be answered. To create an _exclusive_ design for the scientists behind ALICE and CERN, ik shall adhere to the four principles of exculsive design, as defined by Vasilis van Gemert:
 
-Iedere dag zijn er coaches aanwezig voor coaching en feedback. We sluiten de dag af met een stand up, om de status door te spreken. Waar ben je mee bezig? Loop je ergens vast of heb je hulp nodig? Waar sta je?
+- Study situation
+- Ignore conventions
+- Prioritise identity
+- Add nonsense
 
-### Beoordeling
-Tijdens de beoordeling krijg je feedback op het resultaat en op je functioneren. De vakdocenten beoordelen In hoeverre je in het project laten zien dat je de bijhorende vakken beheerst en goed hebt toegepast. De opdrachtgver is geïnteresseerd in hoeverre je oplossing voldoet aan de eisen die zijzelf stellen aan hun producten. Misschien laat je wel wat zien waar ze zelf nog niet aan gedacht hebben?
+#### Study situation
+The first question to be answered was _Where and how will the editor be used?_ Now the first part of that question wasn't hard to answer: the editor will be used mostly at CERN. But to answer _how_ the editor will be used I had to do a bit of digging around.
 
-Het project telt als AVV mee met de Meesterproef.
+Let's look at the stats from the kick-off presentation:
 
-### Feedback over functioneren
-Je hebt een leergierig, gedreven en zelfredzame houding nodig om de minor te kunnen halen. Welke vaardigheden heb je laten zien? Onderzoekend vermogen? Creativiteit? Conceptueel? In hoeverre komen je houding en verworven vaardigheden overeen met wat een frontender in de praktijk nodig heeft?
+- Electronic logbook
+  - human and machine users
+  - 5000 LHC fills, 280.000 runs
+  - 37 GB data from 195.000 log entries
+  - 20.000 file attachments
 
-### Web Design
-Het vak [Web Design](https://github.com/cmda-minor-web/web-design-1819) gaat over het ontwerpen en testen van Interactie. Het voordeel van een Frontend Developer (of Web Designer) is dat die techniek begrijpt, kan toepassen én verstand heeft van UX en design. Als je Web technieken begrijpt kun je je ideeën snel prototypen en testen met echte gebruikers, in een browser. Je kan dan aanpassingen doorvoeren, uitproberen en weer testen
+Aha! According to the presentation, the current logbook will be used by both humans and machines. This explains the need for a markup language: both humans and machines can easily parse and write in them. Also, it makes clear that there must be support for file attachments.
 
-### Real-Time Web
-Het vak [Real-Time Web](https://github.com/cmda-minor-web/real-time-web-1819) gaat over het bouwen van een betekenisvolle real-time applicatie. Hierin leer je hoe je een open verbinding (web socket) opzet tussen de client en de server. En hoe je in real-time data biede kanten op kunt versturen.
+Furthermore, there seems to be a need for integration with a new 'tag system', and logs and comments should be in the form of threads (like Reddit, according to the current students working on the system):
 
-### Oplevering & criteria
-- Presentatie met je bevindingen bij de opdrachtgever. 
-- Github met je code en readme.
+- Database considerations
+  - Being able to migrate old data to new scheme
+  - Support for Tags
+  - Support for Threads (comments)
+  - All functionality from one application.
 
+#### Ignore conventions
+AHH
+
+#### Prioritise identity
+AHH
+
+#### Add nonsense
+AHH
+
+
+
+### Components
+Mithriljs components research enzo
