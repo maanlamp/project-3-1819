@@ -19,21 +19,22 @@ h1 {
 	min-height: 2rem;
 	transition: border-bottom .2s ease;
 } .editableDocumentFragment:hover {
-	border-bottom: 1px solid rgba(0, 0, 0, .2);
+	border-bottom: 2px solid rgba(0, 0, 0, .2);
 } .editableDocumentFragment:focus-within {
-	border-bottom: 1px solid black;
+	border-bottom: 2px solid black;
 } .editableDocumentFragment>textarea {
 	all: inherit;
 	position: absolute;
-	width: 100%;
+	width: 100vh;
 	height: 100%;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
 	background: none;
-	color: transparent;
+	color: red;
 	caret-color: black;
 	resize: none;
 	overflow: hidden;
+	border: none;
 }
