@@ -8,14 +8,15 @@
 
 #editor {
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-	padding: 2rem;
 	background-color: #F9F9F9;
 	height: 100%;
 	color: #223749;
 	display: flex;
+	flex-wrap: wrap;
 	min-height: 100vh;
 } #editor>#content,
 	#editor>#raw {
+		padding: 2rem;
 		flex: 1 1 50%;
 	}
 	#editor>#content>h1 {
@@ -74,7 +75,18 @@
 	font-size: 1rem;
 	resize: none;
 	background: rgba(0, 0, 0, .02);
-	padding: 2rem;
+	min-height: 50vh;
+}
+
+@media (max-width: 1270px) {
+  #editor>#content,
+	#editor>#raw {
+		flex: 1 0 100%;
+	}
+
+	#editor>#raw {
+		margin-top: 5rem;
+	}
 }
 
 /* --------------------- vv Editor visuals vv ------------------ */
