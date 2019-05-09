@@ -2,6 +2,8 @@
 
 For the third project in the Webdesign minor, I was tasked to make a WYSIWYG editor for MarkDown documents.
 
+![An animated image showing the editor being used](./demo.gif)
+
 ## Dag 1-2 (Ma-Di)
 
 ### Research
@@ -90,12 +92,15 @@ I propose a completely different way of thinking about document editing. Most pr
 ![An image showing a small toolbar hovering below and to the right of a paragraph that is being edited.](./ui-design.png)
 
 #### Prioritise identity
-AHH
+The main identity to prioritise and preserve was that of CERN itself. I had a look around the website and implemented some of their stylistic choices. Not much, because their website scored very badly on accessibility and other lighthouse measurements.
 
 #### Add nonsense
-AHH
-
-
+I have to admit I'm just not that good at adding nonsense. I like to keep things tidy. There probably is room for fun in something as plain as logging software, but I couldn't think of anything unobtrusive.
 
 ### Components
-Mithriljs components research enzo
+The current developers are using MithrilJS for development, but I had not enough time and experience to get those components to work properly with the plan I had in mind, so I decided to do it without MithrilJS components.
+
+### What I would have liked to do
+Due to the very short timeframe, I didn't have the time to implement everything I would have liked to. Here's alist of things that would be nice:
+- (basic) Markdown Syntax highlighting
+- Toggleable panels (instead of always open)

@@ -16,7 +16,7 @@
 	min-height: 100vh;
 } #editor>#content,
 	#editor>#raw {
-		padding: 2rem;
+		padding: 4rem;
 		flex: 1 1 50%;
 	}
 	#editor>#content>h1 {
@@ -72,10 +72,11 @@
 	background: url(./images/italic.png) no-repeat center center;
 } #editor>#raw {
 	border: none;
-	font-size: 1rem;
+	font-size: 1.1rem;
 	resize: none;
 	background: rgba(0, 0, 0, .02);
 	min-height: 50vh;
+	font-family: monospace;
 }
 
 @media (max-width: 1270px) {
@@ -93,7 +94,7 @@
 
 #editor>#content h1 {
 	font-size: 5rem;
-	border-bottom: 2px solid #b8c4cf;
+	border-bottom: 2px solid #F1862E;
 	line-height: 1.5em;
 	margin-bottom: 1rem;
 } #editor>#content h2,
@@ -107,10 +108,11 @@
 	margin-top: .5rem;
 } #editor>#content blockquote,
 	#editor>#content code {
-	background-color: #E2E2E2E6;
-	border-left: 2px solid #223749;
+	background-color: #191919;
+	border-left: 4px solid #F1862E;
 	padding: 1rem;
 	margin: .5rem 2rem .5rem 0;
+	color: white;
 } #editor>#content ul,
 	#editor>#content ol {
 	margin: .5rem 0 .5rem 1.5rem;
