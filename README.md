@@ -4,6 +4,45 @@ For the third project in the Webdesign minor, I was tasked to make a WYSIWYG edi
 
 ![An animated image showing the editor being used](./demo.gif)
 
+The editor works in two ways. It renders a beautiful document on one side, while showing the parsed markup on the other. Both sides are reactive to changes, meaning that editing one side, will reflect its changes in the other, and vice versa.
+
+The reason you can edit both documents is because it is far easier to just type in text and have a visual interface for editoing document fragments. for the more tech-savvy CERN-scientists, there's still the possibility to just type in markdown.
+
+## Glossary
+<details>
+	<summary>click here to expand</summary>
+
+- [Project 3 @cmda-minor-web · 2018-2019](#project-3-cmda-minor-web--2018-2019)
+	- [Glossary](#glossary)
+	- [Installing](#installing)
+- [Devlog](#devlog)
+	- [Dag 1-2 (Ma-Di)](#dag-1-2-ma-di)
+		- [Research](#research)
+			- [Study situation](#study-situation)
+			- [Ignore conventions](#ignore-conventions)
+				- [Formatting](#formatting)
+				- [Headings](#headings)
+				- [Links](#links)
+				- [Font faces, colours, etc. (styling)](#font-faces-colours-etc-styling)
+				- [Lists](#lists)
+				- [Tables](#tables)
+				- [Aligning text](#aligning-text)
+				- [Embedding](#embedding)
+				- [Edit target language](#edit-target-language)
+				- [Interface](#interface)
+			- [Prioritise identity](#prioritise-identity)
+			- [Add nonsense](#add-nonsense)
+		- [Components](#components)
+	- [Dag 3-4 (Wo-Do)](#dag-3-4-wo-do)
+	- [What I would have liked to do](#what-i-would-have-liked-to-do)
+</details>
+
+## Installing
+This project is a standalone collection of files, all referenced in a single `html` file.
+
+To get started, simply download the repository, and open up `index.html`.
+
+# Devlog
 ## Dag 1-2 (Ma-Di)
 
 ### Research
@@ -100,7 +139,11 @@ I have to admit I'm just not that good at adding nonsense. I like to keep things
 ### Components
 The current developers are using MithrilJS for development, but I had not enough time and experience to get those components to work properly with the plan I had in mind, so I decided to do it without MithrilJS components.
 
-### What I would have liked to do
+## Dag 3-4 (Wo-Do)
+Now was the time to implement all of the research and ideas. Nothing much to say, have a look around in the code :)
+
+## What I would have liked to do
 Due to the very short timeframe, I didn't have the time to implement everything I would have liked to. Here's alist of things that would be nice:
 - (basic) Markdown Syntax highlighting
 - Toggleable panels (instead of always open)
+- Tags aanmaken/referencen in-text?
