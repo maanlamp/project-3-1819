@@ -1,99 +1,83 @@
-import render from "./render.js";
-import { prepend, append } from "./mount.js";
+import { render, prepend, append } from "./javascript/DOM.js";
+import { moveToolbar, createToolbar, updateToolbarButtons } from "./javascript/toolbar.js";
+import { HTMLToMarkdown, markdownToHTML } from "./javascript/parse.js";
+import ResetableTimeout from "./javascript/resetableTimeout.js";
 
 const editor = render("div#editor");
-const content = render("div#content[contenteditable]")
-const toolbar = render("div#toolbar");
-const buttonTypes = [
-	"raise",
-	"lower",
-	"link",
-	"bold",
-	"italic"
-];
-
-function replaceSelection (type) {
-	const range = window
-		.getSelection()
-		.getRangeAt(0);
-
-	const content = range.cloneContents();
-	switch (type) {
-		case "link": {
-			range.deleteContents();
-			range.insertNode(append(render("a[href=#]"), content));
-		}
-		case "bold": {
-			range.deleteContents();
-			range.insertNode(append(render("strong"), content));
-		}
-		case "italic": {
-			range.deleteContents();
-			range.insertNode(append(render("em"), content));
-		}
+const content = render(`div#content[contenteditable]>h1 "New log"`);
+const raw = render(`textarea#raw`);
+const htmlTimeout = new ResetableTimeout({
+	timeout: 500,
+	handler () {
+		raw.value = HTMLToMarkdown(content);
 	}
-}
-
-const actions = {
-	raise () {
-		console.log("raise");
-	},
-	lower () {
-		console.log("lower");
-	},
-	link () {replaceSelection("link");},
-	bold () {replaceSelection("bold");},
-	italic () {replaceSelection("italic");}
-}
-
-buttonTypes
-	.map(type => render(`button.${type}[title=${type}]`))
-	.forEach(button => {
-		button.addEventListener("click", actions[button.className]);
-		append(toolbar, button);
-	});
-
-function getCaretCoords () {
-	try {
-		const selection = window.getSelection();
-		const range = selection
-			.getRangeAt(0)
-			.cloneRange();
-		range.collapse(true);
-
-		let rect = range.getClientRects()[0] || {};
-		let x = rect.right;
-		let y = rect.bottom;
-
-		if (!x && !y) {
-			const span = render(`span "\u200b"`);
-			range.insertNode(span);
-			const parent = span.parentNode;
-			rect = span.getClientRects()[0];
-			x = rect.right;
-			y = rect.bottom;
-			parent.removeChild(span);
-			parent.normalize();
-		}
-
-		return { x, y };
-	} catch (err) {
-		console.warn(`Could not get caret position: ${err}`);
-		return { x: 0, y: 0 };
+});
+const toolbar = createToolbar(htmlTimeout);
+htmlTimeout.handler();
+const rawTimeout = new ResetableTimeout({
+	timeout: 500,
+	handler () {
+		const html = markdownToHTML(raw.value);
+		content.innerHTML = html;
+		console.log("hey");
 	}
-}
-
-function moveToolbar () {
-	const position = getCaretCoords();
-	toolbar.style.left = `${position.x + 4}px`;
-	toolbar.style.top = `${position.y + 4}px`;
-}
+});
 
 ["keydown", "keyup", "mousedown", "mouseup", "mousemove"].forEach(event => {
 	content.addEventListener(event, event => {
 		if (event.type === "mousemove" && !event.buttons) return;
-		moveToolbar();
+		updateToolbarButtons(toolbar);
+		moveToolbar(toolbar);
+		htmlTimeout.reset();
 	});
 });
 
-prepend(document.body, append(editor, content, toolbar));
+raw.addEventListener("input", event => {
+	rawTimeout.reset();
+});
+
+prepend(document.body, append(editor, content, raw, toolbar));
+
+/* REMOVE THIS ON PRODUCTION, FOR SHOWCASING ONLY */
+const str = `
+# Scientific borakthrough
+
+We have done it! We discovered dark matter!
+
+## Why this is huge
+Because all nerds around the _**globe**_ want to know why the universe's expansion is slowing down, you dummy!
+
+Let me list a couple of other reasons:
+- Science is just cool in general
+- Finally something to talk about other than the Kardashians
+- Just 'cause!
+
+### Haters
+Yes, there have been some haters. Here is the gist of all the hate mails we've recieved:
+> Omgz0rs, ur liek not even skientizt, go resursh spacewasves l0l
+
+> I h8 u u poopooheads
+
+And, my personal favourite:
+> 👺👺👺👺
+Whatever that may mean...
+
+Oh right, don't forget to [look at the research on our website](home.cern).
+`;
+raw.value = "";
+const lines = str.trim().split(/\n+/);
+setTimeout(() => { //Start ofter 5 seconds
+	lines.forEach((line, i) => {
+		[...line, "\n\n"].forEach((char, j) => {
+			setTimeout(() => {
+				raw.value += char;
+			}, 6000*i + 50*j);
+		});
+	});
+}, 1000);
+const a = setInterval(()=>{
+	rawTimeout.handler();
+}, 500);
+setTimeout(()=>{
+	clearInterval(a);
+},100000);

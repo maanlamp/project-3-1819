@@ -1,4 +1,4 @@
-export default function render (template) {
+export function render (template) {
 	//Accepts a string with the following format:
 	//Starts with a tagname (\w+)
 	//followed by 1 or 0 #id (#\w+)
@@ -50,4 +50,16 @@ export default function render (template) {
 		});
 
 	return elements[0];
+}
+
+export function prepend (parent, ...rest) {
+	const children = rest.flat();
+	parent.prepend(...children);
+	return parent;
+}
+
+export function append (parent, ...rest) {
+	const children = rest.flat();
+	parent.append(...children);
+	return parent;
 }

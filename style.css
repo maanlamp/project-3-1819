@@ -6,17 +6,102 @@
 
 /* ----- ^^ CSS RESET ^^ ----- */
 
-#editor>#content:focus {
+#editor {
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	padding: 2rem;
+	background-color: #F9F9F9;
+	height: 100%;
+	color: #223749;
+	display: flex;
+	min-height: 100vh;
+} #editor>#content,
+	#editor>#raw {
+		flex: 1 1 50%;
+	}
+	#editor>#content>h1 {
+	min-width: 1rem;
+	min-height: 1rem;
+	/* Stay clickable without content */
+} #editor>#content:focus {
 	outline: none;
+} #editor:focus-within>#toolbar {
+	display: inline-block;
+	pointer-events: all;
+	opacity: 1;
 } #editor>#toolbar {
+	opacity: 0;
+	pointer-events: none;
 	position: absolute;
-	width: 100px;
-	height: 1.5rem;
 	background-color: #E2E2E2E6;
 	border-radius: 0 4px 4px 4px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.425);
-	transition: left .1s ease, top .1s ease;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+	padding: .25rem;
+	transition: left .1s ease, top .1s ease, opacity .2s .2s ease;
+} #editor>#toolbar>#editType {
+	display: inline-block;
+	height: 100%;
+	color: #8899A6;
+	vertical-align: top;
+	margin-top: 2px;
+	padding: 0 .5rem;
 } #editor>#toolbar>button {
-	width: 1rem;
-	height: 1rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	border: none;
+	background: none;
+	background-size: cover;
+	cursor: pointer;
+	transform: translateY(2px); /* Fix for weird 2px gap below all buttons? */
+	transition: transform .1s ease, width .2s ease, height .2s ease;
+} #editor>#toolbar>button.hidden {
+	transform: scale(0);
+	width: 0;
+	height: 0;
+} #editor>#toolbar>button:not(.hidden)+button {
+	margin-left: .5rem;
+} #editor>#toolbar>button.raise {
+	background: url(./images/raise.png) no-repeat center center;
+} #editor>#toolbar>button.lower {
+	background: url(./images/lower.png) no-repeat center center;
+} #editor>#toolbar>button.link {
+	background: url(./images/link.png) no-repeat center center;
+} #editor>#toolbar>button.bold {
+	background: url(./images/bold.png) no-repeat center center;
+} #editor>#toolbar>button.italic {
+	background: url(./images/italic.png) no-repeat center center;
+} #editor>#raw {
+	border: none;
+	font-size: 1rem;
+	resize: none;
+	background: rgba(0, 0, 0, .02);
+	padding: 2rem;
+}
+
+/* --------------------- vv Editor visuals vv ------------------ */
+
+#editor>#content h1 {
+	font-size: 5rem;
+	border-bottom: 2px solid #b8c4cf;
+	line-height: 1.5em;
+	margin-bottom: 1rem;
+} #editor>#content h2,
+	#editor>#content h3,
+	#editor>#content h4,
+	#editor>#content h5,
+	#editor>#content h6 {
+	margin: 2rem 0 .75rem 0;
+} #editor>#content p+p,
+	#editor>#content div+div {
+	margin-top: .5rem;
+} #editor>#content blockquote,
+	#editor>#content code {
+	background-color: #E2E2E2E6;
+	border-left: 2px solid #223749;
+	padding: 1rem;
+	margin: .5rem 2rem .5rem 0;
+} #editor>#content ul,
+	#editor>#content ol {
+	margin: .5rem 0 .5rem 1.5rem;
+} #editor>#content a {
+	color: #41488B;
 }
