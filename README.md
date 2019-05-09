@@ -34,7 +34,7 @@ The reason you can edit both documents is because it is far easier to just type 
 			- [Add nonsense](#add-nonsense)
 		- [Components](#components)
 	- [Dag 3-4 (Wo-Do)](#dag-3-4-wo-do)
-	- [What I would have liked to do](#what-i-would-have-liked-to-do)
+	- [What I would have liked to do next](#what-i-would-have-liked-to-do-next)
 </details>
 
 ## Installing
@@ -142,7 +142,7 @@ The current developers are using MithrilJS for development, but I had not enough
 ## Dag 3-4 (Wo-Do)
 Now was the time to implement all of the research and ideas. Nothing much to say, have a look around in the code :)
 
-## What I would have liked to do
+## What I would have liked to do next
 Due to the very short timeframe, I didn't have the time to implement everything I would have liked to. Here's alist of things that would be nice:
 - (basic) Markdown Syntax highlighting
 - Toggleable panels (instead of always open)
